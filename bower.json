@@ -10,5 +10,11 @@
     "bower_components",
     "test",
     "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  },
+  "authors": [
+    "Witty Chang <wcc1213@gmail.com>"
   ]
 }
