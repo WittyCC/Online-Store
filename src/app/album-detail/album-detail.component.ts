@@ -28,7 +28,22 @@ export class AlbumDetailComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.albumId = urlParameters['id'];
     });
-    this.albumToDisplay = this.albumService.getAlbumById(this.albumId);
+    //OLD WAY
+    // this.albumToDisplay = this.albumService.getAlbumById(this.albumId);
+    // console.log(this.albumToDisplay);
+
+    // stevesFunction(passedArgument){return passedArgument+5 }
+    // passedArgument => the code to the function
+
+    // NEW WAY
+    this.albumService.getAlbumById(this.albumId).subscribe(dataLastEmittedFromObserver => {
+     //this.albumToDisplay = dataLastEmittedFromObserver;
+     this.albumToDisplay = new Album(dataLastEmittedFromObserver.title,
+                                      dataLastEmittedFromObserver.artist,
+                                      dataLastEmittedFromObserver.description);
+     console.log(this.albumToDisplay);
+     });
+
   }
 
   goToMarketplace() {
