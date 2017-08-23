@@ -15,6 +15,7 @@ export class MarketplaceComponent implements OnInit {
   // our variables
   albums: FirebaseListObservable<any[]>;
   currentRoute: string = this.router.url;
+  filterByArtist: string = "0";
 
   constructor (private router: Router, private albumService: AlbumService) {}
 
@@ -24,5 +25,9 @@ export class MarketplaceComponent implements OnInit {
 
   goToDetailPage(clickedAlbum) {
     this.router.navigate(['albums', clickedAlbum.$key]);
-  };
+  }
+
+  onChange(optionFromMenu) {
+    this.filterByArtist = optionFromMenu;
+  }
 }

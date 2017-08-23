@@ -1,6 +1,6 @@
 <h2>Marketplace</h2>
 
-<div *ngFor="let album of albums | async"  class="panel panel-default">
+<div *ngFor="let album of albums | async | sorting:filterByArtist"  class="panel panel-default">
   <div class="panel-body">
     <h3 (click)="goToDetailPage(album)"><em>{{album.title}}</em> by {{album.artist}}</h3>
     <div *ngIf="currentRoute === '/admin'">
@@ -10,3 +10,9 @@
     </div>
   </div>
 </div>
+
+<select (change)="onChange($event.target.value)">
+  <option value="A">Artist Names that Begin with 'A'</option>
+  <option value="J">Artist Names that Begin with 'J'</option>
+  <option value="Y" selected="selected">Artist Names that Begin with 'Y'</option>
+</select>
