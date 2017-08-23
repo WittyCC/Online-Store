@@ -2,3 +2,11 @@ h1 {
   font-size: 350%;
   text-align: center;
 }
+
+body {
+  background-color: red;
+}
+
+.steve {
+  background-color: salmon;
+}
