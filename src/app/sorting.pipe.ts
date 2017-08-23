@@ -8,13 +8,17 @@ export class SortingPipe implements PipeTransform {
 
   transform(input: Album[], filterByArtist) : any {
     var output: Album[] = [];
-
-    for (var i = 0; i < input.length; i++) {
-      if (input[i].artist.substring(0,1) === filterByArtist) {
-        output.push(input[i]);
+    if(filterByArtist === "0"){
+      return input;
+    } else {
+      for (var i = 0; i < input.length; i++) {
+        if (input[i].artist.substring(0,1) === filterByArtist) {
+          output.push(input[i]);
+        }
       }
-    }
-    return output;
-  }
+      return output;
+    } //end of else
 
-}
+  } //end of transform
+
+} // end of class
